@@ -3,41 +3,25 @@
 <head>
 	<title>WAS IT RUSSIAN TROLLS?</title>
 
+	<center><h1> WAS IT RUSSIAN TROLLS? </h1></center>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+
 	<meta name="description" content="IT'S RUSSIAN TROLLS. Tells you whether a political event was the result of meddling by Kremlin trolls."/>
 </head>
+
 <body>
+	<center>
+		<h3>Query</h3>
 
-<form action="begin-create-done.html" method="get">
-Was <input type="text" name="question"> the result of meddling by a Kremlin troll farm?
-</form>
-
-	<h3>Answer</h3>
-	Yes, <span id="question"></span> was the result of meddling by a Kremlin troll farm. EVERY. SINGLE. TIME.
-
-
-<script>
-	// create the object that will hold the input values
-    var formValues = {};
-    function inputObj(formNR, defaultValues) { 
-      var inputs = formNR.getElementsByTagName('input');
-      for ( var i = 0; i < inputs.length; i++) {
-        formValues[inputs[i].name] = defaultValues[i];
-        if(inputs[i].type === 'text' || inputs[i].type === 'password') {
-          inputs[i].value = defaultValues[i];                            
-          document.getElementById(inputs[i].name).innerHTML = defaultValues[i];
-        }
-        inputs[i].addEventListener('keyup', function() {
-          formValues[this.name] = this.value;
-          document.getElementById(this.name).innerHTML = this.value;
-        }, false);
-      }
-    }
-    // build a little array with the defaultValues for each input
-    var defValues =[''];
-    // this will push all inputs from the given form in the formValues object.
-    inputObj(document.forms[0], defValues);
-</script>
-<script src="http://static.jsbin.com/js/render/edit.js?4.1.1"></script>
-
+		<form>
+				Was <input type="text" required name="question"/> the result of meddling by a Kremlin troll farm? 
+				<input type="button" name="submit" value="Ask" onclick="document.getElementById('my_id').style.display = 'block' ;" />
+			<div id="my_id">
+				<h3>Answer</h3>
+				Yes, <span id="question"></span> was the result of meddling by a Kremlin troll farm. 
+				</p>EVERY. SINGLE. TIME.
+			</div>
+		</form>
+	</center>
 </body>
 </html>
