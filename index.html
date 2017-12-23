@@ -1,67 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>THE FUCKING WEATHER</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta http-equiv="Content-Language" content="en-us"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WAS IT RUSSIAN TROLLS?</title>
 
-	<link href= "/Content/Styles/Styles.min.css"  rel="stylesheet" type="text/css"/>
-	
-	<link href= "https://fonts.googleapis.com/css?family=Ledger"  rel="stylesheet" type="text/css"/>
-
-	<link href="favicon.ico" rel="icon"/>
-
-	<link href="https://s3.amazonaws.com/TheFuckingWeather/Images/favicon.ico" rel="icon"/>
-
-	<meta name="description" content="IT'S THE FUCKING WEATHER. It tells you what the weather is like."/>
+	<meta name="description" content="IT'S RUSSIAN TROLLS. Tells you whether a political event was the result of meddling by Kremlin trolls."/>
 </head>
 <body>
 
 <noscript>
-    <div>WHAT IS THIS THE STONE AGE? TURN ON JAVASCRIPT.</div>
+    <div>WHAT IS THIS, AN ERA OF TECHNOLOGY EMBARGO? TURN ON JAVASCRIPT.</div>
 </noscript>
 
-<div class="bodyDiv">
-    <div id="locationWrapper">
-        <span id="locationDisplay" class="small">Webster, NY</span></div>
-    <div class="content">
-        <!-- Fun fact: The default location is Rochester, NY because of the cold winters at Rochester Institute of Technology -->
-        <!-- IT WAS FUCKING COLD walking to classes in different buildings. -->
-        <p class="large"><span class="temperature jsMainTemp" tempf="37">37</span>&#176;<span id="degree">?!</span></p>
-        <div class="remarkContainer">
-            <p class="remark jsRemark">IT'S FUCKING COLD</p>
-        </div>
-
-        <p class="flavor">I hear Siberia is the same this time of year.</p>
-
-        
-
-        <div class="formTable">
-            <form action="/Where" method="post">    <div id="whereInput">
-        <input id="LocationQuery" maxlength="90" name="LocationQuery" placeholder="WHERE?" type="text" value="" /> <input type="submit" value="FUCKING WEATHER" id="fuckingweather" />
-    </div>
+<form action="begin-create-done.html" method="get">
+Was <input type="text" name="question"> the result of meddling by a Kremlin troll farm?
 </form>
 
+	<h3>Answer</h3>
+	Yes, 
+	formValues.question = <span id="question"></span><br>
+	was the result of meddling by a Kremlin troll farm. EVERY. SINGLE. TIME.
 
-            <div class="options">
-                <div>
-                    <input data-val="true" data-val-required="The Celsius field is required." id="Celsius" name="Celsius" onchange="checkChanged( this )" type="checkbox" value="true" /><input name="Celsius" type="hidden" value="false" /> <label for="Celsius">I WANT FUCKING CELSIUS</label>
-                </div>
-                
-            </div>
-        </div>
-		
-        <div class="forecast">
-            <div class="forecastHeader">
-                <h1>THE FUCKING FORECAST</h1>
-            </div>
-            <div class="forecastBody">
 
-            </div>
-        </div>
-    </div>
-</div>
+<script>
+	// create the object that will hold the input values
+    var formValues = {};
+    function inputObj(formNR, defaultValues) { 
+      var inputs = formNR.getElementsByTagName('input');
+      for ( var i = 0; i < inputs.length; i++) {
+        formValues[inputs[i].name] = defaultValues[i];
+        if(inputs[i].type === 'text' || inputs[i].type === 'password') {
+          inputs[i].value = defaultValues[i];                            
+          document.getElementById(inputs[i].name).innerHTML = defaultValues[i];
+        }
+        inputs[i].addEventListener('keyup', function() {
+          formValues[this.name] = this.value;
+          document.getElementById(this.name).innerHTML = this.value;
+        }, false);
+      }
+    }
+    // build a little array with the defaultValues for each input
+    var defValues =['defaultFirstName','defaultLastName','defaultUser',
+                     'defaultPass','defaultPass'];
+    // this will push all inputs from the given form in the formValues object.
+    inputObj(document.forms[0], defValues);
+</script>
+<script src="http://static.jsbin.com/js/render/edit.js?4.1.1"></script>
 
 </body>
 </html>
